@@ -9,7 +9,6 @@ function PostsList() {
     async function fetchPosts() {
       try {
         console.log('🔄 Загружаю посты с Django API...');
-        
         const response = await fetch('http://localhost:8000/api/posts/');
         
         if (!response.ok) {
@@ -18,11 +17,8 @@ function PostsList() {
         
         const data = await response.json();
         console.log('✅ Посты загружены:', data);
-        
-        // API возвращает ПРЯМОЙ МАССИВ
         setPosts(data);
         setLoading(false);
-        
       } catch (err) {
         console.error('❌ Ошибка загрузки:', err);
         setError(err.message);
@@ -49,7 +45,8 @@ function PostsList() {
           height: '8px',
           background: 'rgba(255,255,255,0.3)',
           borderRadius: '4px',
-          margin: '20px 0'
+          margin: '20px 0',
+          overflow: 'hidden'
         }}>
           <div style={{
             width: '70%',
@@ -196,8 +193,7 @@ function PostsList() {
                   color: 'white',
                   border: 'none',
                   borderRadius: '5px',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s'
+                  cursor: 'pointer'
                 }}
               >
                 Читать полностью →
@@ -223,4 +219,4 @@ function PostsList() {
   );
 }
 
-export default PostsList;git add .
+export default PostsList;
