@@ -9,7 +9,7 @@ function PostsList() {
     async function fetchPosts() {
       try {
         console.log('🔄 Загружаю посты с Django API...');
-        const response = await fetch('https://nikitodak228.pythonanywhere.com/api/posts/');
+    const response = await fetch('https://nikitodak228.pythonanywhere.com/api/posts/');
         
         if (!response.ok) {
           throw new Error(`Ошибка HTTP: ${response.status}`);
